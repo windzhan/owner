@@ -1,0 +1,26 @@
+<h4></h4>
+<table>
+	<thead>
+		<tr>
+			<td>User</td>
+			<td>Post</td>
+			<td>Comment</td>
+			<td></td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><%= @user.name %></td>
+			<% @user.posts.each do |post| %>
+			<td><%= link_to post.title, post_path(post) %></td>
+			<% end %>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
+<%= link_to '[Categories]', categories_path %>
+<%= link_to '[Back to users]', users_path %>
+<%= link_to '[New Post]', new_post_path %>
+<%= link_to "Sign out", session_path, method: "delete" %>

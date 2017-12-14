@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Owner</title>
+    <%= csrf_meta_tags %>
+    
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style type="text/css">
+      html {
+		overflow-y: scroll;
+		width: 100%;
+		height: 500px;
+	  }
+	
+      body {
+      	width: 1321px;
+      	height: 500px;
+      	margin-left: 15px;
+      	margin-right: 15px;
+        
+      }
+
+      #header {
+      	float: right;
+      	height: 100px;
+      	width: 1321px;
+      }
+
+      .menu {
+      	float: right;
+      	margin: 15px;
+      	height: 70px;
+      	width: 1291px;
+        
+      }
+
+      .nav {
+      	float: right;
+      	height: 70px;
+      	width: 360px;
+      }
+
+      .nav li {
+      	float: right;
+        margin: 10px;
+        height: 50px;
+      	width: 100px;
+      	list-style: none;
+      }
+
+	  #container{
+	  	float: right;
+      	height: 300px;
+      	width: 1321px;
+	  }
+      
+      #footer {
+      	float: right;
+      	height: 100px;
+      	width: 1321px;
+      }
+
+      	
+
+    </style>  
+  </head>
+
+  <body>
+  	<header id="header">   
+	  <div class='menu'>
+	    <ul class='nav'>
+		  <li><%= link_to 'Login', new_session_path %></li>
+		  <li><%= link_to 'Categories', categories_path %></li>
+		  <li><%= link_to 'New user', new_user_path %></li>
+		</ul>
+	  </div>
+  	</header>
+
+  	<container id="container">
+      <%= yield %>
+    </container>
+
+    <footer id="footer">
+      <div class='menu'>
+      	<ul class='nav'>
+      		<li><%= link_to "About" %></li>
+      		<li><%= link_to "Help" %></li>
+      		<li><%= link_to "Home",homepages_path %></li>
+      	</ul>
+      </div>
+    </footer>
+  </body>
+</html>
