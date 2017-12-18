@@ -16,7 +16,14 @@
 <% end %>
 
 <h2>Add a comment:</h2>
-<%= flash[:error]%>
+<div class="flash">
+  <% flash.each do |type, message| -%>
+    <div class="callout <%= type == 'error' ? 'alert' : 'warning'%>" >
+      <span class="flash-msg"><%= message %></span>
+    </div>
+  <% end -%>
+</div>
+
 <%= form_for([@post, @comment]) do |f| %>
     <p>
       <%= f.label :body %><br>
@@ -29,3 +36,12 @@
 
 <%= link_to 'Back', posts_path %>
 <%#= link_to "Sign out", session_path, method: "delete" %>
+
+
+
+<style type="text/css">
+  .flash{
+    width: 500px;
+    height: 100px;
+  }
+</style>

@@ -1,0 +1,20 @@
+<%= search_form_for @q,url: search_admins_users_path, html: { method: :post } do |f| %>
+  <%= f.label :name_or_phone_cont %>
+  <%= f.search_field :name_or_phone_cont %>
+  <%= f.submit %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+	  <td><%= sort_link(@q, :name,'Name') %></td>
+	  <td><%= sort_link(@q, :phone,'Phone') %></td>
+	 </tr>
+  </thead>
+  <tbody>
+  	<% @user.each do |user| %>
+  	<td><%= user.name %></td>
+  	<td><%= user.phone %></td>
+  	<% end %>
+  </tbody> 
+</table>

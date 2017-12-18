@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  
+
+  namespace :admins do
+    root 'users#index'
+    resources :users do
+      collection do
+        match 'search' => 'users#search', via: [:get, :post], as: :search
+      end
+    end
+  end
+
   resources :posts do
     resources :comments
   end

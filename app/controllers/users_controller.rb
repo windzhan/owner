@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
+    flash[:success] = "User destroyed."
     redirect_to users_path
   end
 

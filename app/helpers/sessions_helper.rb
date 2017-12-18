@@ -37,12 +37,7 @@ module SessionsHelper
   end
 
   def sign_out
-    #self.current_user = nil
     cookies.delete(:remember_token)
     redirect_to categories_url
   end
-
-  #def find_post
-    #@post = Post.find(params[:id])
-  #end
 end

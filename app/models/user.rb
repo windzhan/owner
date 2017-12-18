@@ -10,6 +10,11 @@ class User < ApplicationRecord
   #validates_uniqueness_of :phone,:case_sensitive => false, :message => "该用户名已存在!"
   validates :password, presence: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+
+  def admin?
+    is_admin
+  end
+  
   before_save :create_remember_token                 
   private
 	def create_remember_token

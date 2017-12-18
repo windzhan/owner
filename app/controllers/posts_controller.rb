@@ -11,13 +11,13 @@ class PostsController < ApplicationController
   end
 
   def show
-    @comment = Comment.new
+    @comment = Comment.new  #对应post/show的<% @post.comments.each do |comment| %>
+
   end
 
   def create
     @post = current_user.posts.build(post_params)
     @post.category_id = params[:category_id]
-    #@post = Post.new(post_params) 
     if @post.save
       flash[:notice] = 'Created post successfully!'
       redirect_to post_path(@post)
